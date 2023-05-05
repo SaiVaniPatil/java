@@ -1,5 +1,6 @@
 package programming;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class FP02Functional{
@@ -29,10 +30,34 @@ public class FP02Functional{
 
         //   distinctNumbers(numbers);
 
-          System.out.println("sortednNumbers =>");
+          // System.out.println("sortednNumbers =>");
 
-          sortednNumbers(numbers);
+          // sortednNumbers(numbers);
 
+
+
+          List<String> courses = List.of("Spring","Spring Boot","API","Microservices","AWS","PCF","Azure","Docker","Kubernetes");
+
+          
+          System.out.println("sortCourses =>");
+
+          sortCourses(courses);
+
+          
+
+    }
+
+    private static void sortCourses(List<String> courses) {
+
+      // courses.stream().sorted(Comparator.naturalOrder()).forEach(System.out::println);
+
+      // System.out.println("reverseOrder =>");
+
+      // courses.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+
+      System.out.println("sortBylength =>");
+
+      courses.stream().sorted(Comparator.comparing(a->a.length())).forEach(System.out::println);
     }
 
     private static void sortednNumbers(List<Integer> numbers) {
