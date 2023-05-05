@@ -2,6 +2,7 @@ package programming;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FP02Functional{
 
@@ -36,15 +37,39 @@ public class FP02Functional{
 
 
 
-          List<String> courses = List.of("Spring","Spring Boot","API","Microservices","AWS","PCF","Azure","Docker","Kubernetes");
+          // List<String> courses = List.of("Spring","Spring Boot","API","Microservices","AWS","PCF","Azure","Docker","Kubernetes");
 
           
-          System.out.println("sortCourses =>");
+          // System.out.println("sortCourses =>");
 
-          sortCourses(courses);
+          // sortCourses(courses);
 
-          
 
+          // List<Integer> doubleNumbers = doubleList(numbers);
+          // System.out.println("doubleNumbers:"+doubleNumbers);
+
+          List<Integer> evenNumbers = evenList(numbers);
+          System.out.println("evenNumbers:"+evenNumbers);
+
+
+           List<String> courses = List.of("Spring","Spring Boot","API","Microservices","AWS","PCF","Azure","Docker","Kubernetes");
+
+          List<Integer> lengthCourses = lengthOfCourses(courses);
+
+          System.out.println("lengthCourses:"+lengthCourses);
+
+    }
+
+    private static List<Integer> lengthOfCourses(List<String> courses) {
+      return courses.stream().map(course -> course.length()).collect(Collectors.toList());
+    }
+
+    private static List<Integer> evenList(List<Integer> numbers) {
+      return numbers.stream().filter(num->num%2==0).collect(Collectors.toList());
+    }
+
+    private static List<Integer> doubleList(List<Integer> numbers) {
+      return numbers.stream().map(num -> num*num).collect(Collectors.toList());
     }
 
     private static void sortCourses(List<String> courses) {
