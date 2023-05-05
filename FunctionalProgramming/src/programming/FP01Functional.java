@@ -13,17 +13,45 @@ public class FP01Functional {
         
         //printEvenNumbersInListFunctionalUsinglambda(List.of(12,9,13,4,6,2,4,12,15));
     
-        printOddNumbersInListFunctionalUsinglambda(List.of(12,9,13,4,6,2,4,12,15));
+        //printOddNumbersInListFunctionalUsinglambda(List.of(12,9,13,4,6,2,4,12,15));
 
-        List<String> courses = List.of("Spring","Spring Boot","API","Microservices","AWS","PCF","Azure","Docker","Kubernetes");
+         List<String> courses = List.of("Spring","Spring Boot","API","Microservices","AWS","PCF","Azure","Docker","Kubernetes");
 
-        printCoursesFunctional(courses);
+        // printCoursesFunctional(courses);
 
-        printSpringCourses(courses);
+        // printSpringCourses(courses);
     
-        printCourseswith4Letters(courses);
+        // printCourseswith4Letters(courses);
+
+        
+       // printSquaresOfEvenNumbersInListFunctional(List.of(12,9,13,4,6,2,4,12,15));
     
+        printCubeOfOddNumbersInListFunctional(List.of(12,9,13,4,6,2,4,12,15));
+        
+        printCharactersinEachCourse(courses);
     
+    }
+
+    private static void printCharactersinEachCourse(List<String> courses) {
+
+        courses.stream().map(course -> course + " - " + course.length()).forEach(System.out::println);
+    }
+
+    private static void printCubeOfOddNumbersInListFunctional(List<Integer> numbers) {
+
+        System.out.println("printCubeOfOddNumbersInListFunctional:");
+
+
+        numbers.stream().filter(num -> num%2!=0).map(num -> num*num*num).forEach(System.out::println);
+    }
+
+    private static void printSquaresOfEvenNumbersInListFunctional(List<Integer> numbers) {
+
+        System.out.println("printSquaresOfEvenNumbersInListFunctional:");
+
+
+            numbers.stream().filter(num -> num%2==0).map(num -> num*num).forEach(System.out::println);
+
     }
 
     private static void printCourseswith4Letters(List<String> courses) {
