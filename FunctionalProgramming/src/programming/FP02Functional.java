@@ -1,5 +1,6 @@
 package programming;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -57,6 +58,10 @@ public class FP02Functional{
           List<Integer> lengthCourses = lengthOfCourses(courses);
 
           System.out.println("lengthCourses:"+lengthCourses);
+
+          //flatMap
+
+          System.out.println("flatmap usage: "+courses.stream().map(course->course.split("")).flatMap(Arrays::stream).collect(Collectors.toList()));
 
     }
 
@@ -138,5 +143,7 @@ public class FP02Functional{
       return numbers.stream().reduce(0,Integer::sum);
     }
 
+
+  
 
 }

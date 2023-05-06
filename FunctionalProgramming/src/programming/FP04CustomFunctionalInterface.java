@@ -1,10 +1,12 @@
 package programming;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class Course{
 
@@ -170,6 +172,19 @@ public class FP04CustomFunctionalInterface {
          System.out.println("grouping courses count by category : "+courses.stream().collect(Collectors.groupingBy(Course::getCategory,Collectors.mapping(Course::getName,Collectors.toList())))
          );
 
+
+                //primitive streams
+
+      int[] numArr = {12,9,13,4,6,4,12,15};
+
+      System.out.println("primitive streams ex : " + Arrays.stream(numArr).sum());
+
+      System.out.println("primitive streams ex : " + Arrays.stream(numArr));
+
+      System.out.println("primitive streams ex : " + Stream.of(12,9,13,4,6,4,12,15));
+
+
+      
 
 
 
