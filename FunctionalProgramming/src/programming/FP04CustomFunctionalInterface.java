@@ -141,6 +141,20 @@ public class FP04CustomFunctionalInterface {
 
 
 
+        System.out.println("sum of students in courses review score>90: "+courses.stream().filter(reviewgreaterthan90).mapToInt(Course::getNoOfStudents).sum());
+
+        System.out.println("average of students in courses review score>90: "+courses.stream().filter(reviewgreaterthan90).mapToInt(Course::getNoOfStudents).average());
+
+
+        System.out.println("No of courses review score>90: "+courses.stream().filter(reviewgreaterthan90).mapToInt(Course::getNoOfStudents).count());
+
+
+        System.out.println("No of courses review score>90: "+courses.stream().filter(reviewgreaterthan90).mapToInt(Course::getNoOfStudents).max());
+
+        System.out.println("No of courses review score>90: "+courses.stream().filter(reviewgreaterthan90).mapToInt(Course::getNoOfStudents).min());
+
+
+
 
 
 
