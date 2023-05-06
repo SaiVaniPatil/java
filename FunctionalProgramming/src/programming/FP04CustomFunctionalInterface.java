@@ -110,6 +110,40 @@ public class FP04CustomFunctionalInterface {
         System.out.println("take while: "+courses.stream().takeWhile(course->course.getReviewScore()>95).collect(Collectors.toList()));
 
         System.out.println("drop while : "+courses.stream().dropWhile(course->course.getReviewScore()>95).collect(Collectors.toList()));
+        
+        //returns last element in list
+        System.out.println("max course : "+courses.stream().max(comparingByNoOfStudents));
+
+        //returns first element in list
+        System.out.println("max course : "+courses.stream().min(comparingByNoOfStudents));
+
+        //optional use case output Optional.empty
+        
+        Predicate<? super Course> reviewLessThan80 = course -> course.getReviewScore()<80;
+        System.out.println("max course optional : "+courses.stream().filter(reviewLessThan80).min(comparingByNoOfStudents));
+
+        //we can add else when there is null to specify default case
+
+       
+        System.out.println("max course optional default case : "+courses.stream().filter(reviewLessThan80).min(comparingByNoOfStudents).orElse(new Course("Kubernetes","Cloud",81,12000)));
+
+
+        //findFirst
+
+        System.out.println("findfirst review>80 : "+courses.stream().filter(reviewGreaterthan80).findFirst());
+
+
+        
+        //findAny
+
+        System.out.println("findAny review>80 : "+courses.stream().filter(reviewGreaterthan80).findAny());
+
+
+
+
+
+
+
 
 
     }
