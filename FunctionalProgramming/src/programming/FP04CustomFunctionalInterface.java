@@ -3,6 +3,7 @@ package programming;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 class Course{
@@ -153,6 +154,21 @@ public class FP04CustomFunctionalInterface {
 
         System.out.println("No of courses review score>90: "+courses.stream().filter(reviewgreaterthan90).mapToInt(Course::getNoOfStudents).min());
 
+
+        //grouping
+
+        System.out.println("grouping courses by category : "+courses.stream().collect(Collectors.groupingBy(Course::getCategory)));
+
+        //group courses by category and count no of courses in them
+
+        System.out.println("grouping courses count by category : "+courses.stream().collect(Collectors.groupingBy(Course::getCategory,Collectors.counting())));
+
+        //group courses by category and  get highest reviewd course
+        System.out.println("grouping courses and get get highest reviews course in each by category : "+courses.stream().collect(Collectors.groupingBy(Course::getCategory,Collectors.maxBy(Comparator.comparing(Course::getReviewScore)))));
+
+         //group courses by category and  get highest reviewd course
+         System.out.println("grouping courses count by category : "+courses.stream().collect(Collectors.groupingBy(Course::getCategory,Collectors.mapping(Course::getName,Collectors.toList())))
+         );
 
 
 
