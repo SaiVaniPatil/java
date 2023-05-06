@@ -1,5 +1,6 @@
 package programming;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FP01Functional {
@@ -16,6 +17,15 @@ public class FP01Functional {
         //printOddNumbersInListFunctionalUsinglambda(List.of(12,9,13,4,6,2,4,12,15));
 
          List<String> courses = List.of("Spring","Spring Boot","API","Microservices","AWS","PCF","Azure","Docker","Kubernetes");
+
+
+         List<String> modifiableCourses = new ArrayList<>(courses);
+         //modify existinglist 
+
+         modifiableCourses.replaceAll(str -> str.toUpperCase());
+         
+             System.out.println(modifiableCourses);
+
 
         // printCoursesFunctional(courses);
 
