@@ -96,11 +96,20 @@ public class FP04CustomFunctionalInterface {
 
        System.out.println("comparingByNoOfStudentsDesc: "+newCourseList);
 
-       Comparator<Course> comparingByNoOfStudentsandReviews = Comparator.comparing(Course::getNoOfStudents).thenComparing(Course::getReviewScore);
+        Comparator<Course> comparingByNoOfStudentsandReviews = Comparator.comparing(Course::getNoOfStudents).thenComparing(Course::getReviewScore);
 
        newCourseList = courses.stream().sorted(comparingByNoOfStudents).collect(Collectors.toList());
 
        System.out.println("comparingByNoOfStudentsandReviews: "+newCourseList);
+
+
+        System.out.println( "limit example : "+courses.stream().sorted(comparingByNoOfStudentsandReviews).limit(5).collect(Collectors.toList()));
+
+        System.out.println( "skip example : "+courses.stream().sorted(comparingByNoOfStudentsandReviews).skip(3).collect(Collectors.toList()));
+
+        System.out.println("take while: "+courses.stream().takeWhile(course->course.getReviewScore()>95).collect(Collectors.toList()));
+
+        System.out.println("drop while : "+courses.stream().dropWhile(course->course.getReviewScore()>95).collect(Collectors.toList()));
 
 
     }
