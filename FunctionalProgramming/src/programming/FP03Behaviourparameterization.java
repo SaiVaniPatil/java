@@ -36,8 +36,7 @@ public class FP03Behaviourparameterization {
         Function<? super Integer, ? extends Integer> squareFunction = x -> x*x;
 
 
-        List squaredNumbers = extracted(numbers, squareFunction);
-    
+        List squaredNumbers = extracted(numbers, squareFunction);    
       
 
         
